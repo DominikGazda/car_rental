@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: security-service
+          uri: lb://SECURITY-SERVICE
+          predicates:
+            - Path=/api/security/**
+          filters:
+            - AuthenticationFilter
+        - id: user-management-service
+          uri: lb://USER-MANAGEMENT-SERVICE
+          predicates:
+            - Path=/api/user/management/**
