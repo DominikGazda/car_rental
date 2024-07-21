@@ -3,7 +3,7 @@ spring:
     gateway:
       routes:
         - id: security-service
-          uri: lb://SECURITY-SERVICE
+          uri: lb://security-service
           predicates:
             - Path=/api/security/**
           filters:
